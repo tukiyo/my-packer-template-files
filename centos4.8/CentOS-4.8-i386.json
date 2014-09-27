@@ -1,0 +1,37 @@
+{
+  "provisioners": [ {
+      "type": "shell",
+      "scripts": [
+        "scripts/vagrant.sh",
+        "scripts/vault_repo.sh",
+        "scripts/zerodisk.sh"
+      ],
+      "override": {
+        "virtualbox-iso": {
+          "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+        }
+      }
+  } ],
+  "builders": [{
+      "type": "virtualbox-iso",
+      "boot_command": [
+        "<tab> text ks=http://{{.HTTPIP}}:{{.HTTPPort}}/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "5s",
+      "disk_size": 10000,
+      "guest_os_type": "RedHat",
+      "http_directory": "http",
+      "iso_checksum": "ff7c2e711f45f22d7288cf190ccea506",
+      "iso_checksum_type": "md5",
+      "iso_url": "CentOS-4.8-i386-bin1of4.iso",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "1000s",
+      "shutdown_command": "sudo /sbin/shutdown -h now"
+  }],
+  "post-processors": [ {
+      "type": "vagrant",
+      "output": "CentOS-4.8-i386.box"
+  } ]
+}
