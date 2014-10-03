@@ -24,7 +24,7 @@
 			"<enter><wait>"
 		],
 		"boot_wait": "10s",
-		"disk_size": 32768,
+		"disk_size": 32000,
 		"guest_os_type": "Debian_64",
 		"http_directory": "http",
 		"iso_checksum": "{{user `iso_checksum`}}",
@@ -39,8 +39,8 @@
 		"virtualbox_version_file": ".vbox_version",
 		"vm_name": "debian-amd64",
 		"vboxmanage": [
-			[ "modifyvm", "{{.Name}}", "--memory", "512" ],
-			[ "modifyvm", "{{.Name}}", "--cpus", "1" ]
+			[ "modifyvm", "{{.Name}}", "--memory", "1500" ],
+			[ "modifyvm", "{{.Name}}", "--cpus", "2" ]
 		]
 	} ],
 	"post-processors": [ {
@@ -52,11 +52,12 @@
 		"type": "shell",
 		"execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
 		"scripts": [
-			"scripts/update.sh",
 			"scripts/sshd.sh",
 			"scripts/networking.sh",
 			"scripts/sudoers.sh",
 			"scripts/vagrant.sh",
+			"scripts/locale.sh",
+			"scripts/packages.sh",
 			"scripts/vbaddguest.sh",
 			"scripts/cleanup.sh",
 			"scripts/zerodisk.sh"
