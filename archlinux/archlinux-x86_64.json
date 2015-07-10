@@ -1,7 +1,7 @@
 {
 	"variables" : {
-		"iso_url" : "archlinux-2014.09.03-dual.iso",
-		"iso_sum" : "e467bce0f33d795f61954b31dafb5050",
+		"iso_url" : "archlinux-2015.07.01-dual.iso",
+		"iso_sum" : "957232076cd0b32083a702b1b2e77796",
 		"iso_sum_type" : "md5"
 	},
 	"builders" : [ {
