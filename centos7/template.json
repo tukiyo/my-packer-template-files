@@ -3,8 +3,8 @@
     {
       "guest_os_type": "RedHat_64",
       "iso_checksum_type": "md5",
-      "iso_checksum": "111379a06402e1e445c6aeee9401d031",
-      "iso_url": "http://ftp.tsukuba.wide.ad.jp/Linux/centos/7/isos/x86_64/CentOS-7-x86_64-NetInstall-1503.iso",
+      "iso_checksum": "d07ab3e615c66a8b2e9a50f4852e6a77",
+      "iso_url": "CentOS-7-x86_64-Minimal-1503-01.iso",
       "type": "virtualbox-iso",
       "ssh_password": "vagrant",
       "ssh_username": "vagrant",
